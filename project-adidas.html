@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <title>Adidas Screenshots</title>
+
+
+  <link rel="stylesheet" href="dome-gallery.css">
+</head>
+
+<body>
+<div class="gallery-header">
+  <a href="index.html" class="back-btn">
+    <span class="arrow">←</span>
+    <span>Back</span>
+  </a>
+
+  <h2 class="title">Adidas App – Screenshots</h2>
+</div>
+
+
+  <div id="domeContainer"></div>
+
+  <script src="dome-gallery.js"></script>
+
+  <script>
+    const images = [
+      "images/adiclub.jpg",
+      "images/adidas profile.jpg",
+      "images/carousel slider.jpg",
+      "images/casual shoes.jpg",
+      "images/earn points.jpg",
+      "images/Home page.jpg",
+      "images/kids section.jpg",
+      "images/level.jpg",
+      "images/login page.jpg",
+      "images/shirt.jpg",
+      "images/shoes style 2.jpg",
+      "images/shoes styles.jpg",
+      "images/shoes.jpg",
+      "images/shop mens section.jpg",
+      "images/users.jpg",
+      "images/women.jpg",
+      "images/womens section.jpg",
+    ];
+
+    DomeGallery(document.getElementById("domeContainer"), images);
+  </script>
+
+</body>
+</html>
