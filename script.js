@@ -1,220 +1,187 @@
 /* ======================================
-   script.js — cleaned & production ready
+   script.js — High End Interaction Layer
    ====================================== */
 
-/* Detect touch devices and disable custom cursor */
+// Disable custom cursor on touch devices
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
   document.body.classList.add('is-touch');
 }
 
 (() => {
+  /* =========================
+     CUSTOM PREMIUM FASHION CURSOR
+     ========================= */
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorRing = document.querySelector('.cursor-ring');
-  const magneticEls = document.querySelectorAll('.magnetic');
-  const tiltCards = document.querySelectorAll('.tilt-card');
-  const reveals = document.querySelectorAll('.reveal');
-  const movers = document.querySelectorAll('.scroll-move');
-  const glow = document.querySelector('.glow-stars');
-  const heroRotate = document.getElementById('heroRotate');
+  const cursorText = document.querySelector('.cursor-text');
 
-  /* =========================
-     CUSTOM CURSOR (DESKTOP)
-     ========================= */
-
-  if (!document.body.classList.contains('is-touch')) {
+  if (!document.body.classList.contains('is-touch') && cursorDot && cursorRing) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let ringX = mouseX;
     let ringY = mouseY;
-    let ringScale = 1;
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      if (cursorDot) {
-        cursorDot.style.left = mouseX + 'px';
-        cursorDot.style.top = mouseY + 'px';
-        cursorDot.style.transform = 'translate(-50%, -50%)';
-      }
+      // Dot moves instantly
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
     });
 
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
+    const animateCursor = () => {
+      ringX += (mouseX - ringX) * 0.15; // Smooth trailing for ring
+      ringY += (mouseY - ringY) * 0.15;
 
-      if (cursorRing) {
-        cursorRing.style.left = ringX + 'px';
-        cursorRing.style.top = ringY + 'px';
-        cursorRing.style.transform =
-          `translate(-50%, -50%) scale(${ringScale})`;
-      }
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
 
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
+    const hoverItems = document.querySelectorAll('.project-link, .magnetic, .btn, a, button, input, textarea');
 
-    const hoverTargets =
-      'a, button, input, textarea, .tilt-card, .btn, .magnetic';
+    hoverItems.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        // Clear previous states
+        cursorRing.classList.remove('hover-state', 'hover-nav', 'hover-btn');
+        cursorRing.classList.add('hover-state');
 
-    document.addEventListener('pointerover', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        ringScale = 1.45;
-        if (cursorRing)
-          cursorRing.style.borderColor = 'rgba(255,255,255,0.85)';
-      }
+        // Custom text or styling based on element
+        if (el.closest('.project-link')) {
+          cursorText.textContent = 'View';
+        } else if (el.closest('.nav-links a') || el.closest('.logo')) {
+          cursorText.textContent = '';
+          cursorRing.classList.add('hover-nav');
+        } else if (el.closest('.btn') || el.closest('button')) {
+          cursorText.textContent = '';
+          cursorRing.classList.add('hover-btn');
+        } else if (el.closest('input, textarea')) {
+          cursorText.textContent = 'Type';
+        } else {
+          cursorText.textContent = '';
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorRing.classList.remove('hover-state', 'hover-nav', 'hover-btn');
+      });
     });
-
-    document.addEventListener('pointerout', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        ringScale = 1;
-        if (cursorRing)
-          cursorRing.style.borderColor = 'rgba(255,255,255,0.45)';
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      mouseX = Math.min(window.innerWidth, mouseX);
-      mouseY = Math.min(window.innerHeight, mouseY);
-    }, { passive: true });
   }
 
   /* =========================
      MAGNETIC ELEMENTS
      ========================= */
+  const magneticEls = document.querySelectorAll('.magnetic');
 
   magneticEls.forEach(el => {
-    el.addEventListener('pointermove', (ev) => {
+    el.addEventListener('mousemove', (e) => {
       const rect = el.getBoundingClientRect();
-      const x = ev.clientX - rect.left - rect.width / 2;
-      const y = ev.clientY - rect.top - rect.height / 2;
-      el.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      const strength = el.dataset.strength || 0.2;
+      el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
     });
-    el.addEventListener('pointerleave', () => {
-      el.style.transform = 'translate(0,0)';
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0px, 0px)';
     });
   });
 
   /* =========================
-     REVEAL ANIMATIONS
+     3D TILT EFFECT (PROJECTS)
      ========================= */
-
-  if ('IntersectionObserver' in window) {
-    const revealObs = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
-
-    reveals.forEach(el => revealObs.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('is-visible'));
-  }
-
-  if ('IntersectionObserver' in window) {
-    const moveObs = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
-
-    movers.forEach(el => moveObs.observe(el));
-  } else {
-    movers.forEach(el => el.classList.add('in-view'));
-  }
-
-  /* =========================
-     TILT CARDS (DESKTOP ONLY)
-     ========================= */
+  const tiltCards = document.querySelectorAll('.tilt-effect');
 
   if (!document.body.classList.contains('is-touch')) {
     tiltCards.forEach(card => {
-      const img = card.querySelector('.tilt-img');
-      const overlay = card.querySelector('.tilt-overlay');
-      const scale = parseFloat(card.dataset.scale || 1.04);
-      const strength = parseFloat(card.dataset.rotate || 12);
+      let inner = card.querySelector('.card-image-inner');
 
-      card.addEventListener('pointermove', (e) => {
+      card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
         const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
 
-        card.style.transform =
-          `perspective(800px) rotateX(${-dy * strength}deg) rotateY(${dx * strength}deg)`;
+        // 3D rotation logic mapping
+        const rotateX = dy * -15; // Max 15 degrees
+        const rotateY = dx * 15;
 
-        if (img) img.style.transform =
-          `translate(${dx * 6}px, ${dy * 6}px) scale(${scale})`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
 
-        if (overlay) overlay.style.transform =
-          `translate(${dx * -6}px, ${dy * -6}px)`;
+        if (inner) {
+          inner.style.transform = `translateX(${dx * 10}px) translateY(${dy * 10}px) scale(1.1)`;
+        }
       });
 
-      card.addEventListener('pointerleave', () => {
-        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
-        if (img) img.style.transform = 'translate(0,0) scale(1)';
-        if (overlay) overlay.style.transform = 'translate(0,0)';
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        if (inner) {
+          inner.style.transform = `translateX(0px) translateY(0px) scale(1)`;
+        }
       });
     });
   }
 
   /* =========================
-     MAGIC BENTO GLOW
+     PARALLAX IMAGES ON SCROLL
      ========================= */
+  const parallaxImgs = document.querySelectorAll('.parallax-img');
 
-  document.querySelectorAll('.magic-bento-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--glow-x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
-      card.style.setProperty('--glow-y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    parallaxImgs.forEach(img => {
+      const parent = img.parentElement;
+      const parentTop = parent.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (parentTop < windowHeight && parentTop > -parent.offsetHeight) {
+        const offset = (parentTop - windowHeight / 2) * -0.15;
+        img.style.transform = `translateY(${offset}px) scale(1.15)`;
+      }
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.setProperty('--glow-x', '50%');
-      card.style.setProperty('--glow-y', '50%');
+    // Scrolled header background
+    const header = document.querySelector('header');
+    if (header) {
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
+
+  /* =========================
+     REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+     ========================= */
+  if ('IntersectionObserver' in window) {
+    const revealOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target); // Reveal only once
+        }
+      });
+    }, revealOptions);
+
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-fade, .reveal-up-stagger, .reveal-slide-right');
+    revealEls.forEach(el => {
+      revealObserver.observe(el);
     });
-  });
-
-  /* =========================
-     HERO ROTATING TEXT
-     ========================= */
-
-  const rotateTexts = [
-    'Flutter Developer',
-    'Android Developer',
-    'REST API Developer',
-    'Frontend UI'
-  ];
-
-  if (heroRotate) {
-    let index = 0;
-    heroRotate.textContent = rotateTexts[0];
-
-    setInterval(() => {
-      heroRotate.style.opacity = '0';
-      setTimeout(() => {
-        index = (index + 1) % rotateTexts.length;
-        heroRotate.textContent = rotateTexts[index];
-        heroRotate.style.opacity = '1';
-      }, 220);
-    }, 2600);
-  }
-
-  /* =========================
-     GLOW PARALLAX
-     ========================= */
-
-  if (glow && !document.body.classList.contains('is-touch')) {
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      glow.style.transform = `translate(${x}px, ${y}px)`;
-    }, { passive: true });
+  } else {
+    // Fallback for older browsers
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-fade, .reveal-up-stagger, .reveal-slide-right');
+    revealEls.forEach(el => {
+      el.classList.add('is-visible');
+    });
   }
 
 })();

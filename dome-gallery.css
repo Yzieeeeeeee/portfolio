@@ -1,471 +1,281 @@
 /* -----------------------------------------
-   ROOT
+   ROOT & PREMIUM THEME (IMAGE TRAIL)
 ------------------------------------------ */
-.sphere-root {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  --radius: 520px;
-  --segments-x: 35;
-  --segments-y: 35;
-  --overlay-blur-color: #060010;
-  --tile-radius: 18px;
-  --enlarge-radius: 28px;
-  --viewer-pad: 70px;
-
-  filter: brightness(1.18);
+:root {
+  --bg: #f6f5f0;
+  /* Premium Bone */
+  --fg: #1a1a1a;
+  /* Onyx text */
+  --accent: #dca54f;
+  /* Gold */
 }
-/* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Body styling */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+html,
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0a0f2c, #1b2a6d);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+  /* Stop scrolling on trail page */
 }
 
-/* Header container */
+/* Ambient Premium Background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top left, #ffffff 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #fdfcf9 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* -----------------------------------------
+   HEADER
+------------------------------------------ */
 .gallery-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 25px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 40px;
+  background: rgba(246, 245, 240, 0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 100;
 }
 
-/* Back button */
 .back-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  color: #cfd3ff;
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  transition: 0.25s;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--fg);
+  padding: 10px 20px;
+  border-radius: 99px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  z-index: 101;
 }
 
 .back-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--fg);
 }
 
-.arrow {
-  font-size: 18px;
-}
-
-/* Title */
 .title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: #ffffff;
-  text-align: right;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--fg);
 }
 
-
-.sphere-root * {/* -----------------------------------------
-   ROOT (FULL SCREEN GLOBE)
+/* -----------------------------------------
+   INFINITE MENU CONTAINER & TRACK (React Bits Style)
 ------------------------------------------ */
-.sphere-root {
-  position: fixed;         /* Make globe fill the viewport */
+.infinite-menu-root {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  /* Auto radius based on screen size */
-  --radius: calc(min(100vw, 100vh) * 0.45);
-  --segments-x: 35;
-  --segments-y: 35;
-  --overlay-blur-color: #060010;
-  --tile-radius: 18px;
-  --enlarge-radius: 28px;
-  --viewer-pad: 0px;       /* Remove padding so globe fills fully */
-
-  filter: brightness(1.18);
-  z-index: 0;              /* Keeps header/UI on top */
-}
-
-.sphere-root * {
-  box-sizing: border-box;
-}
-
-/* -----------------------------------------
-   MAIN + PERSPECTIVE (AUTO FULLSCREEN)
------------------------------------------- */
-.sphere-main {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  touch-action: none;
-  user-select: none;
+  perspective: 1000px;
 }
 
-.stage {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-
-  perspective: calc(var(--radius) * 2); /* auto */
-  perspective-origin: 50% 50%;
+.infinite-menu-container {
+  width: 150vw;
+  margin-left: -25vw;
+  height: 60vh;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  transform: rotate(-3deg) translateY(10px);
 }
 
-.sphere {
-  transform-style: preserve-3d;
-  transform: translateZ(calc(var(--radius) * -1)); /* auto depth */
+.infinite-menu-track {
+  display: flex;
+  gap: 30px;
+  padding: 0 40px;
+  cursor: grab;
   will-change: transform;
 }
 
-/* -----------------------------------------
-   SPHERE TILE ITEMS (AUTO SPACING)
------------------------------------------- */
-.item {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  transform-style: preserve-3d;
-
-  transform:
-    rotateY(calc((360deg / var(--segments-x)) * (var(--offset-x) / 2)))
-    rotateX(calc((360deg / var(--segments-y)) * (var(--offset-y) / 2)))
-    translateZ(var(--radius));
-
-  transition: transform 0.35s cubic-bezier(.2,.9,.3,1);
+.infinite-menu-track:active {
+  cursor: grabbing;
 }
 
-/* Tile visual */
-.item__image {
-  position: absolute;
-  inset: 8px;
-
-  border-radius: var(--tile-radius);
+/* CARDS */
+.menu-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 480px;
+  border-radius: 20px;
   overflow: hidden;
-  cursor: pointer;
-
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  transition: transform .28s ease, box-shadow .28s ease;
+  position: relative;
+  transition: box-shadow 0.4s ease, filter 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  /* subtle inner star border effect like react bits */
+  padding: 2px;
 }
 
-.item__image:hover {
-  transform: scale(1.12);
-  box-shadow: 0 22px 40px rgba(0,0,0,0.45);
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      transparent 60deg,
+      #dca54f 120deg
+      /* Gold Star glow */
+      ,
+      #ffffff 180deg,
+      transparent 240deg);
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.item__image img {
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.menu-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+  z-index: 1;
+}
+
+.menu-item:hover::before {
+  opacity: 0.8;
+}
+
+.menu-item:hover {
+  box-shadow: 0 40px 80px rgba(220, 165, 79, 0.35);
+}
+
+.menu-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* -----------------------------------------
-   EDGE FADES
------------------------------------------- */
-.edge-fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 160px;
-  z-index: 6;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--overlay-blur-color)
-  );
-}
-
-.edge-fade--top {
-  top: 0;
-  transform: rotate(180deg);
-}
-
-.edge-fade--bottom {
-  bottom: 0;
-}
-
-/* -----------------------------------------
-   BLUR OVERLAYS
------------------------------------------- */
-.overlay,
-.overlay--blur {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   pointer-events: none;
 }
 
-.overlay {
-  background-image: radial-gradient(
-    rgba(255,255,255,0) 65%,
-    var(--overlay-blur-color) 100%
-  );
-}
-
-.overlay--blur {
-  mask-image: radial-gradient(
-    rgba(255,255,255,0) 72%,
-    var(--overlay-blur-color) 90%
-  );
-  backdrop-filter: blur(3.6px);
+.menu-item:hover .menu-image {
+  transform: scale(1.08);
+  /* slight zoom on hover */
 }
 
 /* -----------------------------------------
    POPUP VIEWER
 ------------------------------------------ */
 .viewer {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 200;
   display: none;
   place-items: center;
 }
 
-.sphere-root[data-open="true"] .viewer {
+.infinite-menu-root[data-open="true"] .viewer {
   display: grid;
 }
 
 .scrim {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
+  background: rgba(246, 245, 240, 0.85);
+  /* Light glass scrim */
+  backdrop-filter: blur(12px);
   opacity: 0;
-  animation: fadeIn .35s ease forwards;
+  animation: fadeIn .4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 .popup {
-  width: 340px;
-  height: 500px;
-  border-radius: var(--enlarge-radius);
-  overflow: hidden;
-  background: #000;
-
-  animation: popupShow .35s cubic-bezier(.2,.9,.3,1) forwards;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 20px;
+  padding: 10px;
+  background: #fff;
+  animation: popupShow .5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes popupShow {
-  0%   { transform: scale(.65); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(.8) translateY(20px);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 .popup img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-  box-sizing: border-box;
-}
-
-/* -----------------------------------------
-   MAIN + PERSPECTIVE
------------------------------------------- */
-.sphere-main {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  touch-action: none;
-  user-select: none;
-}
-
-.stage {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-
-  perspective: calc(var(--radius) * 2);
-  perspective-origin: 50% 50%;
-}
-
-.sphere {
-  transform-style: preserve-3d;
-  transform: translateZ(calc(var(--radius) * -1));
-  will-change: transform;
-}
-
-/* -----------------------------------------
-   SPHERE TILE ITEMS
------------------------------------------- */
-.item {
-  position: absolute;
-  top: -999px;
-  left: -999px;
-  right: -999px;
-  bottom: -999px;
-  margin: auto;
-  transform-style: preserve-3d;
-
-  width: 90px;
-  height: 90px;
-
-  transform-origin: center;
-  transition: transform 350ms cubic-bezier(.2,.9,.3,1);
-  backface-visibility: hidden;
-}
-
-/* rotation formula (MUST be present for globe placement) */
-.item {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  transform-style: preserve-3d;
-
-  transform:
-    rotateY(calc((360deg / var(--segments-x)) * (var(--offset-x) / 2)))
-    rotateX(calc((360deg / var(--segments-y)) * (var(--offset-y) / 2)))
-    translateZ(var(--radius));
-
-  transition: transform 0.35s cubic-bezier(.2,.9,.3,1);
-}
-
-
-
-.item__image {
-  position: absolute;
-  inset: 8px;
-
-  border-radius: var(--tile-radius);
-  overflow: hidden;
-  cursor: pointer;
-
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  transition: transform .28s ease, box-shadow .28s ease;
-}
-
-.item__image:hover {
-  transform: scale(1.12);
-  box-shadow: 0 22px 40px rgba(0,0,0,0.45);
-}
-
-.item__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* -----------------------------------------
-   EDGE FADES
------------------------------------------- */
-.edge-fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 160px;
-  z-index: 6;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--overlay-blur-color)
-  );
-}
-
-.edge-fade--top {
-  top: 0;
-  transform: rotate(180deg);
-}
-
-.edge-fade--bottom {
-  bottom: 0;
-}
-
-/* -----------------------------------------
-   BLUR OVERLAYS
------------------------------------------- */
-.overlay,
-.overlay--blur {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.overlay {
-  background-image: radial-gradient(
-    rgba(255,255,255,0) 65%,
-    var(--overlay-blur-color) 100%
-  );
-}
-
-.overlay--blur {
-  mask-image: radial-gradient(
-    rgba(255,255,255,0) 72%,
-    var(--overlay-blur-color) 90%
-  );
-  backdrop-filter: blur(3.6px);
-}
-
-/* -----------------------------------------
-   POPUP VIEWER
------------------------------------------- */
-.viewer {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  display: none;
-  place-items: center;
-}
-
-/* show viewer when popup created via JS */
-.sphere-root[data-open="true"] .viewer {
-  display: grid;
-}
-
-.scrim {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  animation: fadeIn .35s ease forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-.popup {
-  width: 340px;
-  height: 500px;
-  border-radius: var(--enlarge-radius);
-  overflow: hidden;
-  background: #000;
-
-  animation: popupShow .35s cubic-bezier(.2,.9,.3,1) forwards;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
-}
-
-@keyframes popupShow {
-  0%   { transform: scale(.65); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.popup img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  border-radius: 12px;
+  max-height: calc(85vh - 20px);
+  width: auto;
+  object-fit: contain;
 }

@@ -1,360 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>yzieee — Portfolio</title>
+  <title>yzieee — Premium Portfolio</title>
+
+  <!-- Google Fonts: Top-tier Premium combination -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+    rel="stylesheet">
 
   <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- CUSTOM CURSOR -->
+  <!-- Ambient Background Orbs to remove pure white feel -->
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Noise Texture overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- PREMIUM FASHION CURSOR -->
   <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true">
+    <div class="cursor-text">View</div>
+  </div>
 
   <!-- NAV / HEADER -->
-  <header>
+  <header class="reveal-slide-down">
     <div class="container nav">
-      <div class="logo">yzieee</div>
+      <div class="logo magnetic">yzieee.</div>
       <nav class="nav-links">
         <a href="#home" class="magnetic">Home</a>
         <a href="#work" class="magnetic">Projects</a>
         <a href="#about" class="magnetic">About</a>
         <a href="#services" class="magnetic">Services</a>
         <a href="#contact" class="magnetic">Contact</a>
-        <a href="resume.pdf" class="magnetic" target="_blank" rel="noopener noreferrer">
-  Resume
-</a>
-
-  
-
+        <a href="resume.pdf" class="btn-nav magnetic" target="_blank" rel="noopener noreferrer">Resume</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="background-video" aria-hidden="true">
-      <video autoplay loop muted playsinline>
-        <source src="images/hero-bg.mp4" type="video/mp4" />
-      </video>
-    </div>
+  <section id="home" class="hero section">
+    <div class="container hero-container">
 
-    <div class="glow-stars" aria-hidden="true"></div>
-
-    <div class="container">
-      <div class="hero-welcome reveal">Welcome to my portfolio</div>
-
-      <h1 class="big-header-hero-home reveal">
-        <span id="heroLine">I am <strong>yzieee</strong></span>
-      </h1>
-
-      <div id="heroRotate" class="hero-rotate reveal">Flutter Developer</div>
-
-      <p class="lead reveal">
-        I design and build smooth, polished mobile experiences using Flutter.
-      </p>
-
-      <div class="hero-cta reveal">
-        <a class="btn magnetic" href="#work">Selected Work</a>
-        <a class="btn btn-outline magnetic" href="#contact">Contact</a>
+      <div class="hero-content">
+        <div class="hero-welcome reveal-fade">— Digital Craftsman</div>
+        <h1 class="big-header-hero-home reveal-up-stagger">
+          <span class="line">Engineering</span>
+          <span class="line"><i class="italic-serif">aesthetic</i> software</span>
+          <span class="line">for the future.</span>
+        </h1>
+        <div class="hero-description reveal-fade delay-1">
+          I design and build smooth, polished mobile and web experiences using Flutter and modern frameworks. Blending
+          aesthetics with functionality.
+        </div>
+        <div class="hero-cta reveal-fade delay-2">
+          <a class="btn magnetic" href="#work">Explore Work</a>
+          <a class="btn btn-outline magnetic" href="#contact">Get in touch</a>
+        </div>
       </div>
+
+      <div class="hero-visual reveal-scale delay-1">
+        <div class="hero-collage">
+          <div class="collage-item main-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
+              class="parallax-img" alt="Architectural geometry">
+          </div>
+          <div class="collage-item secondary-img">
+            <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=1500&auto=format&fit=crop"
+              class="parallax-img" alt="Abstract shapes">
+          </div>
+          <div class="collage-item accent-img">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1500&auto=format&fit=crop"
+              alt="Aesthetic minimal">
+          </div>
+          <div class="floating-badge hero-badge">
+            <span class="pulse-dot"></span> Available for work
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- WORK -->
-  <section id="work" class="section">
+  <section id="work" class="section work-section">
     <div class="container">
-      <h2 class="section scroll-move">Selected Projects</h2>
-
-     <div class="work-grid">
-
-  <a href="project-adidas.html" class="project-link">
-    <article class="tilt-card reveal" data-scale="1.08" data-rotate="10">
-      <div class="tilt-inner">
-        <img class="tilt-img" src="images/Adidas logo.jpg" alt="Adidas App">
-        <div class="tilt-overlay">
-          <div class="tilt-overlay-inner">
-            <h3>Adidas App</h3>
-            <p>Adidas UI + Cart + Animations</p>
-          </div>
-        </div>
+      <div class="section-header reveal-up">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">A curation of my finest work, designed with intent and built to perform.</p>
       </div>
-      <div class="tilt-caption">Adidas UI</div>
-    </article>
-  </a>
 
-  <a href="project-instagram.html" class="project-link">
-    <article class="tilt-card reveal" data-scale="1.08" data-rotate="10">
-      <div class="tilt-inner">
-        <img class="tilt-img" src="images/Instagram-Logo.png" alt="Instagram UI">
-        <div class="tilt-overlay">
-          <div class="tilt-overlay-inner">
-            <h3>Instagram UI</h3>
-            <p>Feed + Stories + Notifications</p>
-          </div>
-        </div>
+      <div class="work-grid">
+        <a href="project-adidas.html" class="project-link reveal-up">
+          <article class="premium-card hover-glow">
+            <div class="card-image-wrap tilt-effect">
+              <div class="card-image-inner">
+                <img class="card-img" src="images/Adidas logo.jpg" alt="Adidas App">
+              </div>
+              <div class="hover-circle-btn">View <br> Project</div>
+            </div>
+            <div class="card-content">
+              <div class="card-tags"><span>UI Design</span><span>Animation</span></div>
+              <h3>Adidas App Concept</h3>
+              <p>Sleek interface with dynamic cart animations and premium product displays.</p>
+            </div>
+          </article>
+        </a>
+
+        <a href="project-instagram.html" class="project-link reveal-up delay-1">
+          <article class="premium-card hover-glow">
+            <div class="card-image-wrap tilt-effect">
+              <div class="card-image-inner">
+                <img class="card-img" src="images/Instagram-Logo.png" alt="Instagram UI">
+              </div>
+              <div class="hover-circle-btn">View <br> Project</div>
+            </div>
+            <div class="card-content">
+              <div class="card-tags"><span>Social Media</span><span>Flutter</span></div>
+              <h3>Instagram Redesign</h3>
+              <p>Reimagining social feeds with fluid layouts and highly engaging notification drops.</p>
+            </div>
+          </article>
+        </a>
+
+        <a href="project-ecommerce.html" class="project-link reveal-up delay-2">
+          <article class="premium-card hover-glow">
+            <div class="card-image-wrap tilt-effect">
+              <div class="card-image-inner">
+                <img class="card-img" src="images/ecommerce screen shots/snapshop logo.png" alt="Snap Shop 4 Logo">
+              </div>
+              <div class="hover-circle-btn">View <br> Project</div>
+            </div>
+            <div class="card-content">
+              <div class="card-tags"><span>E-commerce</span><span>Flutter App</span></div>
+              <h3>Snap Shop</h3>
+              <p>A completely tailored shopping experience featuring role-based interfaces for admins, users, and
+                delivery agents.</p>
+            </div>
+          </article>
+        </a>
       </div>
-      <div class="tilt-caption">Instagram UI</div>
-    </article>
-  </a>
-
-  <a href="project-musicplayer.html" class="project-link">
-    <article class="tilt-card reveal" data-scale="1.08" data-rotate="10">
-      <div class="tilt-inner">
-        <img class="tilt-img" src="images/musicplayer.png" alt="Music Player">
-        <div class="tilt-overlay">
-          <div class="tilt-overlay-inner">
-            <h3>Music Player</h3>
-            <p>Custom Player UI</p>
-          </div>
-        </div>
-      </div>
-      <div class="tilt-caption">Music Player</div>
-    </article>
-  </a>
-
-</div>
-
+    </div>
+  </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
+  <section id="about" class="section about-section">
     <div class="container">
-      <h2 class="section scroll-move">About Me</h2>
-
-      <div class="about-row">
-        <div class="about-text reveal">
-          <p>I am a Flutter developer focused on building fast, clean, and user-friendly mobile applications.</p>
-          <p>My work includes UI-focused projects such as Instagram-style interfaces, animated shopping carts, custom music players, and polished onboarding flows.</p>
+      <div class="about-grid">
+        <div class="about-visual reveal-scale">
+          <div class="image-stack">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2000&auto=format&fit=crop"
+              alt="Architecture" class="img-back parallax-img">
+            <img src="images/profile.jpg" alt="Profile photo" class="img-front parallax-img">
+          </div>
         </div>
 
-        <div class="about-photo reveal">
-          <img src="images/profile.jpg" alt="Profile photo">
+        <div class="about-text-content">
+          <h2 class="section-title reveal-up">The Designer <br> Behind the Code.</h2>
+          <div class="text-body reveal-up delay-1">
+            <p>I am a multifaceted developer and designer passionate about creating digital experiences that are not
+              only functional but visually captivating.</p>
+            <p>My philosophy centers around "aesthetic usability"—bridging the gap between beautiful design theory and
+              flawless technical execution. Whether it's crafting silky-smooth Flutter animations or architecting
+              scalable front-ends, I build with purpose.</p>
+          </div>
+
+          <div class="stats-grid reveal-up delay-2">
+            <div class="stat-item">
+              <div class="stat-num">1</div>
+              <div class="stat-label">Years Exp.</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">15+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Passion</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- SERVICES -->
-<section id="services" class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Services</h2>
-
-    <div class="work-grid">
-
-      <!-- CARD 1 -->
-      <div class="star-border-container reveal">
-
-        <!-- TOP GLOW -->
-        <div class="star-border-top" aria-hidden="true"></div>
-
-        <!-- SIDE LIGHTS -->
-        <div class="star-border-side-left" aria-hidden="true"></div>
-        <div class="star-border-side-right" aria-hidden="true"></div>
-
-        <!-- INNER CONTENT -->
-        <div class="star-border-inner">
-          <h4>Flutter Apps</h4>
-          <p>Clean Architecture + UI Design</p>
-        </div>
-
-        <!-- BOTTOM GLOW -->
-        <div class="star-border-bottom" aria-hidden="true"></div>
-
+  <!-- SERVICES & SKILLS -->
+  <section id="services" class="section feature-section">
+    <div class="container">
+      <div class="section-header reveal-up text-center">
+        <h2 class="section-title">Capabilities</h2>
+        <p class="section-subtitle">A comprehensive toolkit spanning design, development, and architecture.</p>
       </div>
 
-      <!-- CARD 2 -->
-      <div class="star-border-container reveal">
+      <div class="bento-grid">
 
-        <!-- TOP -->
-        <div class="star-border-top" aria-hidden="true"></div>
-
-        <!-- SIDES -->
-        <div class="star-border-side-left" aria-hidden="true"></div>
-        <div class="star-border-side-right" aria-hidden="true"></div>
-
-        <!-- INNER BOX -->
-        <div class="star-border-inner">
-          <h4>UI/UX Design</h4>
-          <p>Prototypes + Systems</p>
+        <div class="bento-card span-2 reveal-up">
+          <div class="bento-inner">
+            <div class="icon-wrap">📱</div>
+            <h3>Flutter & Dart Mastery</h3>
+            <p>Cross-platform application development utilizing strictly typed Dart. I focus on optimized rendering,
+              smooth 60fps animations, and scalable code structures that can handle complex state.</p>
+          </div>
         </div>
 
-        <!-- BOTTOM -->
-        <div class="star-border-bottom" aria-hidden="true"></div>
+        <div class="bento-card bg-accent reveal-up delay-1">
+          <div class="bento-inner">
+            <div class="icon-wrap dark">✨</div>
+            <h3 class="text-white">UI/UX Design</h3>
+            <p class="text-white fade">Creating hyper-polished interfaces with tools like Figma, translating
+              high-fidelity prototypes directly into pixel-perfect code.</p>
+          </div>
+        </div>
+
+        <div class="bento-card reveal-up delay-2">
+          <div class="bento-inner">
+            <div class="icon-wrap">🔥</div>
+            <h3>Backend Integration</h3>
+            <p>Deep experience interfacing with Firebase infrastructure, RESTful APIs, and managing real-time data
+              synchronization natively.</p>
+          </div>
+        </div>
+
+        <div class="bento-card span-2 image-card reveal-up">
+          <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070&auto=format&fit=crop"
+            class="parallax-img" alt="Code">
+          <div class="card-overlay-gradient">
+            <h3 class="text-white">Clean Architecture</h3>
+            <p class="text-white fade">Building maintainable systems using Provider, GetX, and layered domain models.
+            </p>
+          </div>
+        </div>
 
       </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- Skills -->
-   
-<section id="skills" class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Skills</h2>
-
-    <div class="card-grid reveal">
-
-      <div class="magic-bento-card">
-        <h3>Flutter & Dart</h3>
-        <p>Cross-platform app development with optimized and scalable code structure.</p>
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2 class="section-title">Academic & Professional Journey</h2>
       </div>
 
-      <div class="magic-bento-card">
-        <h3>Firebase</h3>
-        <p>Authentication, Firestore, Storage, and real-time database integration.</p>
-      </div>
+      <div class="timeline-wrapper">
+        <div class="timeline-item reveal-slide-right">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2025</span>
+            <h3>Flutter Development Certification <span class="tag">SMEC Labs</span></h3>
+            <p>Advanced study of Flutter, UI/UX conceptualizing, deep Firebase integration, and crafting custom reactive
+              REST API handlers.</p>
+          </div>
+        </div>
 
-      <div class="magic-bento-card">
-        <h3>REST API Integration</h3>
-        <p>Handling JSON, HTTP requests, and connecting apps with backend services.</p>
+        <div class="timeline-item reveal-slide-right delay-1">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2025</span>
+            <h3>Bachelor of Computer Application <span class="tag">MG University</span></h3>
+            <p>Established strong fundamentals in object-oriented programming paradigms, complex data structures, and
+              rigorous algorithmic problem solving.</p>
+          </div>
+        </div>
       </div>
-
-      <div class="magic-bento-card">
-        <h3>State Management</h3>
-        <p>Managing reactive UI updates using clean, maintainable architecture.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Provider / GetX</h3>
-        <p>Efficient app-wide state handling, navigation, and dependency management.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Responsive UI/UX</h3>
-        <p>Adaptive layouts, modern interfaces, and smooth mobile interactions.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Git & Version Control</h3>
-        <p>Branching, merging, and collaborative workflow with GitHub.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Basic Python</h3>
-        <p>Automation scripting, data handling, and logical problem-solving.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>HTML & CSS</h3>
-        <p>Building structured, responsive, and visually clean web layouts.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Animations & Transitions</h3>
-        <p>Smooth motion design with Flutter’s animation controllers and tweens.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Material Design</h3>
-        <p>Implementing modern UI components with consistent look and feel.</p>
-      </div>
-
-      <div class="magic-bento-card">
-        <h3>Clean Architecture</h3>
-        <p>Layered structuring for maintainable, scalable mobile applications.</p>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-<!-- Education -->
-    <section id="education" class="section">
-  <div class="container">
-    <h2 class="section-title scroll-move">Educations</h2>
-
-    <div class="edu-wrapper">
-
-      <!-- ITEM 1 -->
-      <div class="edu-item scroll-move">
-        <div class="edu-year">2025</div>
-        <div class="edu-content">
-          <h3>Flutter Development <span>SMEC Labs</span></h3>
-          <p>
-            Completed Flutter Development, UI/UX Development, Firebase Integration,
-            and REST API handling.
-          </p>
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container flex-contact">
+      <div class="contact-info reveal-up">
+        <h2 class="section-title huge">Let's build <br> something <i class="italic-serif">iconic.</i></h2>
+        <p class="contact-lead">Currently available for freelance projects and exciting full-time opportunities.</p>
+        <div class="contact-links">
+          <a href="mailto:muhammedyasir3819@gmail.com" class="magnetic link-arrow">muhammedyasir3819@gmail.com ↗</a>
+          <a href="https://www.linkedin.com/in/muhammed-yasie/" class="magnetic link-arrow">LinkedIn ↗</a>
+          <a href="https://github.com/Yzieeeeeeee" class="magnetic link-arrow">GitHub ↗</a>
         </div>
       </div>
 
-      <!-- ITEM 2 -->
-      <div class="edu-item scroll-move">
-        <div class="edu-year">2025</div>
-        <div class="edu-content">
-          <h3>Degree <span>Bachelor of Computer Application</span></h3>
-          <p>
-            MG University — Completed BCA with strong fundamentals in object-oriented programming, data structures, and algorithmic problem solving.
-          </p>
-        </div>
+      <div class="contact-form-wrapper reveal-up delay-1">
+        <form class="premium-form" id="contact-form">
+          <div class="input-group">
+            <input name="name" type="text" id="name" required placeholder=" ">
+            <label for="name">Your Name</label>
+          </div>
+          <div class="input-group">
+            <input name="email" type="email" id="email" required placeholder=" ">
+            <label for="email">Email Address</label>
+          </div>
+          <div class="input-group">
+            <textarea name="message" id="message" required placeholder=" "></textarea>
+            <label for="message">Project Details</label>
+          </div>
+          <button class="btn btn-large magnetic" type="submit">Send Message <span class="arrow">→</span></button>
+        </form>
       </div>
-
     </div>
+  </section>
+
+  <!-- Bottom popup -->
+  <div id="toast" class="toast">
+    <div class="toast-icon">✓</div>
+    <span>Message delivered successfully. I'll be in touch soon.</span>
   </div>
-
-
- 
-</section>
-
-
-  <section id="contact" class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Contact</h2>
-
-    <form class="contact-form reveal" id="contact-form">
-      <input name="name" type="text" class="form-field" placeholder="Your name" required>
-      <input name="email" type="email" class="form-field" placeholder="Your email" required>
-      <textarea name="message" class="form-field-textarea" placeholder="Message" required></textarea>
-
-    
-      <button class="btn submit magnetic" type="submit">Send</button>
-    </form>
-  </div>
-</section>
-
-<!-- Bottom popup -->
-<div id="toast" class="toast">Message sent successfully!</div>
-
-
 
   <footer>
-    <div class="container">© 2025 yzieee</div>
+    <div class="container footer-content">
+      <div class="footer-logo">yzieee.</div>
+      <div class="footer-copy">© 2026 yzieee. All rights reserved. <br> Designed with precision.</div>
+    </div>
   </footer>
 
   <!-- Link to JS -->
   <script src="script.js"></script>
   <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-emailjs.init("VcqKYYYin6fwdGkEl");
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("VcqKYYYin6fwdGkEl");
 
-const form = document.getElementById("contact-form");
-const toast = document.getElementById("toast");
+    const form = document.getElementById("contact-form");
+    const toast = document.getElementById("toast");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  emailjs.sendForm(
-    "service_z4dfs5o",
-    "template_9iqt3pb",
-    this
-  ).then(() => {
-    toast.classList.add("show");
-    form.reset();
+      const btn = form.querySelector('button');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Sending...';
 
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3000);
-  }).catch((error) => {
-    console.error(error);
-    alert("Message failed to send");
-  });
-});
-</script>
+      emailjs.sendForm("service_z4dfs5o", "template_9iqt3pb", this)
+        .then(() => {
+          toast.classList.add("show");
+          form.reset();
+          btn.innerHTML = originalText;
+          setTimeout(() => { toast.classList.remove("show"); }, 4000);
+        }).catch((error) => {
+          console.error(error);
+          btn.innerHTML = originalText;
+          alert("Message failed to send. Please check the consol.");
+        });
+    });
+  </script>
 
 </body>
+
 </html>

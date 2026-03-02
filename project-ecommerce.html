@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <title>Ecommerce App Screenshots</title>
+
+    <link rel="stylesheet" href="dome-gallery.css">
+</head>
+
+<body>
+    <div class="gallery-header">
+        <a href="index.html" class="back-btn">
+            <span class="arrow">←</span>
+            <span>Back</span>
+        </a>
+
+        <h2 class="title">Ecommerce App – Screenshots</h2>
+    </div>
+
+    <div id="domeContainer"></div>
+
+    <script src="dome-gallery.js"></script>
+
+    <script>
+        const images = [
+            "images/ecommerce screen shots/splashscreen.jpeg",
+            "images/ecommerce screen shots/Onboard.jpeg",
+            "images/ecommerce screen shots/Login.jpeg",
+            "images/ecommerce screen shots/user home page.jpeg",
+            "images/ecommerce screen shots/detaied products page .jpeg",
+            "images/ecommerce screen shots/cart page.jpeg",
+            "images/ecommerce screen shots/order check out .jpeg",
+            "images/ecommerce screen shots/user profile page.jpeg",
+            "images/ecommerce screen shots/user edit profile.jpeg",
+            "images/ecommerce screen shots/admin home .jpeg",
+            "images/ecommerce screen shots/admin edit products.jpeg",
+            "images/ecommerce screen shots/Delivery boy Homepage.jpeg",
+            "images/ecommerce screen shots/FAQ page.jpeg",
+            "images/ecommerce screen shots/contact page.jpeg"
+        ];
+
+        DomeGallery(document.getElementById("domeContainer"), images);
+    </script>
+
+</body>
+
+</html>
