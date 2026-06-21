@@ -65,7 +65,7 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
               View Work <i className="ph ph-arrow-down" />
             </a>
-            <a href="/legacy/resume.pdf" className="btn btn-secondary" target="_blank" rel="noreferrer">
+            <a href={`${import.meta.env.BASE_URL}legacy/Muhammed_Yasir_Resume.pdf`} className="btn btn-secondary" target="_blank" rel="noreferrer" download>
               Download Resume <i className="ph ph-download-simple" />
             </a>
           </motion.div>
