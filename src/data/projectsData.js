@@ -104,7 +104,7 @@ const projectsData = {
             "legacy/crm dash board app/profile details page.jpeg"
         ],
         downloadLink: "legacy/crm dash board app/crm dash (1).apk",
-        repoLink: "https://github.com/Yzieeeeeeee/crm-dashboard",
+        repoLink: "https://github.com/Yzieeeeeeee/crm-pro-dashboard",
         liveDemoLink: null,
         
         keyFeatures: [
