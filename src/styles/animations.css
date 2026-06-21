@@ -1,0 +1,198 @@
+/* ==========================================================================
+   ANIMATIONS — Premium 2026 Rebuild
+   ========================================================================== */
+
+/* ----------------------------------
+   Liquid Text Gradient
+   ---------------------------------- */
+.liquid-text {
+    background: var(--brand-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: liquidGradient 5s ease infinite alternate;
+}
+
+@keyframes liquidGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* ----------------------------------
+   Shiny Text (Shimmer)
+   ---------------------------------- */
+.shiny-text {
+    background: linear-gradient(
+        120deg,
+        rgba(240, 246, 252, 0.4) 40%,
+        rgba(240, 246, 252, 1) 50%,
+        rgba(240, 246, 252, 0.4) 60%
+    );
+    background-size: 200% auto;
+    color: var(--text-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+html[data-theme="light"] .shiny-text {
+    background: linear-gradient(
+        120deg,
+        rgba(13, 17, 23, 0.4) 40%,
+        rgba(13, 17, 23, 1) 50%,
+        rgba(13, 17, 23, 0.4) 60%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* ----------------------------------
+   Star Border (Rotating Conic Edge)
+   ---------------------------------- */
+.star-border {
+    position: relative;
+    padding: 1px;
+    border-radius: var(--border-radius-lg);
+    background: transparent;
+    overflow: hidden;
+}
+
+.star-border::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent 70%, var(--brand-primary) 100%);
+    transform-origin: 0 0;
+    animation: star-rotate 4s linear infinite;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.star-border-content {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: calc(var(--border-radius-lg) - 1px);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+@keyframes star-rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ----------------------------------
+   Aurora Background Keyframes
+   ---------------------------------- */
+@keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.aurora-bg {
+    background: linear-gradient(
+        -45deg,
+        rgba(6, 182, 212, 0.15),
+        rgba(168, 85, 247, 0.15),
+        rgba(6, 182, 212, 0.05),
+        rgba(168, 85, 247, 0.1)
+    );
+    background-size: 400% 400%;
+    animation: aurora 15s ease infinite;
+}
+
+/* ----------------------------------
+   Hover Lift
+   ---------------------------------- */
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ----------------------------------
+   Magnetic Wrap
+   ---------------------------------- */
+.magnetic-wrap {
+    display: inline-block;
+}
+
+/* ----------------------------------
+   Glare Card
+   ---------------------------------- */
+.glare-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.glare-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.glare-card:hover .glare-overlay {
+    opacity: 1;
+}
+
+/* ----------------------------------
+   Aurora Border
+   ---------------------------------- */
+.aurora-border {
+    position: relative;
+}
+
+.aurora-border::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        var(--brand-primary) 20%,
+        var(--brand-secondary) 40%,
+        var(--brand-primary) 60%,
+        transparent 80%
+    );
+    border-radius: inherit;
+    z-index: -2;
+    animation: spin 4s linear infinite;
+    opacity: 0.4;
+}
+
+.aurora-border::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg-primary);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

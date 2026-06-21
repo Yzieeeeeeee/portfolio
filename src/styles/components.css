@@ -1,0 +1,394 @@
+/* ==========================================================================
+   COMPONENTS — Premium 2026 Rebuild
+   ========================================================================== */
+
+/* ----------------------------------
+   Buttons
+   ---------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.6rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, opacity 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 44px;
+}
+
+.btn-primary {
+    background: var(--brand-gradient);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.25);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+    background: rgba(240, 246, 252, 0.04);
+    transform: translateY(-2px);
+    border-color: var(--border-glow);
+}
+
+/* ----------------------------------
+   Glass Card
+   ---------------------------------- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    border-color: var(--border-glow);
+}
+
+/* Spotlight effect */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    transition: border-color 0.3s ease, transform 0.4s ease;
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+.spotlight-card > * {
+    z-index: 1;
+    position: relative;
+}
+
+/* ----------------------------------
+   Skill Card
+   ---------------------------------- */
+.skill-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: var(--border-glow);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    color: var(--brand-primary);
+    margin-bottom: 4px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    white-space: nowrap;
+}
+
+/* ----------------------------------
+   Phone Frame Mockup
+   ---------------------------------- */
+.phone-frame {
+    width: 260px;
+    height: 520px;
+    border-radius: 40px;
+    border: 8px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px color-mix(in srgb, var(--accent, var(--brand-primary)) 20%, transparent);
+    flex-shrink: 0;
+}
+
+html[data-theme="light"] .phone-frame {
+    border-color: rgba(13, 17, 23, 0.15);
+    box-shadow:
+        0 0 0 1px rgba(13, 17, 23, 0.05),
+        0 40px 80px rgba(0, 0, 0, 0.15),
+        0 0 60px color-mix(in srgb, var(--accent, var(--brand-primary)) 10%, transparent);
+}
+
+@keyframes autoScroll {
+    0%, 10% { object-position: top; }
+    45%, 55% { object-position: bottom; }
+    90%, 100% { object-position: top; }
+}
+
+.phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    animation: autoScroll 15s ease-in-out infinite;
+}
+
+/* ----------------------------------
+   Tags
+   ---------------------------------- */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+}
+
+.tech-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ----------------------------------
+   Forms
+   ---------------------------------- */
+.form-field {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 14px 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.form-label {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.2s;
+}
+
+textarea.form-input ~ .form-label {
+    top: 20px;
+    transform: none;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+    top: 8px;
+    transform: translateY(0);
+    font-size: 0.75rem;
+    color: var(--brand-primary);
+}
+
+textarea.form-input {
+    min-height: 140px;
+    resize: vertical;
+    padding-top: 24px;
+}
+
+textarea.form-input:focus ~ .form-label,
+textarea.form-input:not(:placeholder-shown) ~ .form-label {
+    top: 6px;
+    transform: none;
+}
+
+/* ----------------------------------
+   Project Image
+   ---------------------------------- */
+.project-image {
+    width: 100%;
+    height: 250px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ----------------------------------
+   Availability Badge
+   ---------------------------------- */
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #22c55e;
+    margin-bottom: 16px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+}
+
+/* ----------------------------------
+   Misc Utilities
+   ---------------------------------- */
+.p-4 { padding: 1.8rem !important; }
+
+code {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--brand-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.95em;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+.premium-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.premium-list li {
+    margin-bottom: 1.5rem;
+}
+
+.text-large {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Achievements grid for project details */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Project overview box */
+.project-overview-box {
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--brand-primary);
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.08) 0%, transparent 100%);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+html[data-theme="light"] .project-overview-box {
+    background: linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0%, transparent 100%);
+}
+
+/* Bento card (kept for project details) */
+.bento-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .phone-frame {
+        width: 200px;
+        height: 400px;
+    }
+}

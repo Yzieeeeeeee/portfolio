@@ -1,0 +1,336 @@
+/* ==========================================================================
+   ANIMATIONS ("React Bits" Style)
+   ========================================================================== */
+
+/* ----------------------------------
+   1. Blur Text Reveal (React Bits Style)
+   ---------------------------------- */
+.blur-reveal {
+    opacity: 0;
+    filter: blur(16px);
+    transform: scale(0.95) translateY(20px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+}
+
+.blur-reveal.active {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1) translateY(0);
+}
+
+/* ----------------------------------
+   2. Shiny Text / Shimmer (React Bits Style)
+   ---------------------------------- */
+.shiny-text {
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.5) 40%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.5) 60%
+    );
+    background-size: 200% auto;
+    color: var(--text-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+html[data-theme="light"] .shiny-text {
+    background: linear-gradient(
+        120deg,
+        rgba(15, 23, 42, 0.6) 40%,
+        rgba(15, 23, 42, 1) 50%,
+        rgba(15, 23, 42, 0.6) 60%
+    );
+    background-size: 200% auto;
+    color: var(--text-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* ----------------------------------
+   3. Spotlight Cards (React Bits Style)
+   ---------------------------------- */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    /* Basic styling to ensure it's a card */
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--theme-transition), transform 0.4s ease;
+    z-index: 1;
+}
+
+/* The gradient spotlight overlay */
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle at center, rgba(19, 185, 253, 0.15) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+html[data-theme="light"] .spotlight-card::before {
+    background: radial-gradient(circle at center, rgba(19, 185, 253, 0.1) 0%, transparent 60%);
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+/* Inner content to be above the spotlight */
+.spotlight-card > * {
+    z-index: 2;
+    position: relative;
+}
+
+/* ----------------------------------
+   4. Aurora Border Glow
+   ---------------------------------- */
+.aurora-border {
+    position: relative;
+}
+
+.aurora-border::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        var(--flutter-cyan) 20%,
+        var(--flutter-blue) 40%,
+        var(--accent-purple) 60%,
+        transparent 80%
+    );
+    border-radius: inherit;
+    z-index: -2;
+    animation: spin 4s linear infinite;
+    opacity: 0.5;
+}
+
+.aurora-border::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg-surface);
+    border-radius: inherit;
+    z-index: -1;
+    backdrop-filter: blur(20px);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ----------------------------------
+   Standard Scroll Reveal (Legacy)
+   ---------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-container .reveal-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-container.active .reveal-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------------------
+   Magnetic Hover effect wrapper
+   ---------------------------------- */
+.magnetic-wrap {
+    display: inline-block;
+}
+
+/* ----------------------------------
+   Typing Cursor
+   ---------------------------------- */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: var(--flutter-cyan);
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ----------------------------------
+   Hover Glow Enhancement
+   ---------------------------------- */
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(19, 185, 253, 0.3);
+}
+
+/* ----------------------------------
+   5. Spring Reveal (Bouncy Scale in)
+   ---------------------------------- */
+.spring-reveal {
+    opacity: 0;
+    transform: scale(0.85) translateY(50px) rotateX(10deg);
+    transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: opacity, transform;
+}
+
+.spring-reveal.active {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+}
+
+/* ----------------------------------
+   6. Star Border (Moving Glowing Edge)
+   ---------------------------------- */
+.star-border {
+    position: relative;
+    padding: 2px;
+    border-radius: var(--border-radius-lg);
+    background: transparent;
+    overflow: hidden;
+}
+
+.star-border::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    background: conic-gradient(from 0deg, transparent 75%, var(--flutter-cyan) 100%);
+    transform-origin: 0 0;
+    animation: star-rotate 4s linear infinite;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+html[data-theme="light"] .star-border::before {
+    background: conic-gradient(from 0deg, transparent 75%, var(--flutter-blue) 100%);
+}
+
+.star-border-content {
+    position: relative;
+    background: var(--bg-surface);
+    backdrop-filter: blur(10px);
+    border-radius: calc(var(--border-radius-lg) - 2px);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+@keyframes star-rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ----------------------------------
+   7. Liquid Text Gradient (Ultra Rich)
+   ---------------------------------- */
+.liquid-text {
+    background: linear-gradient(
+        -45deg, 
+        #ff007f, 
+        #7928ca, 
+        #ff0080, 
+        #00d2ff, 
+        #3a7bd5
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquidGradient 6s ease infinite;
+}
+
+@keyframes liquidGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ----------------------------------
+   8. Liquid Glass Animation
+   ---------------------------------- */
+.liquid-glass {
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-glass::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.05) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg) translateY(-100%);
+    animation: liquidSweep 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+html[data-theme="dark"] .liquid-glass::after {
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.02) 40%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.02) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+@keyframes liquidSweep {
+    0% { transform: rotate(30deg) translateY(-100%); }
+    50% { transform: rotate(30deg) translateY(100%); }
+    100% { transform: rotate(30deg) translateY(100%); }
+}

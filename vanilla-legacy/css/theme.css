@@ -1,0 +1,77 @@
+/* ==========================================================================
+   THEME VARIABLES (Light & Dark Mode)
+   ========================================================================== */
+
+:root {
+    /* Transitions for seamless theme switching */
+    --theme-transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    
+    /* Shared Constants */
+    --flutter-blue: #02569B;
+    --flutter-cyan: #13B9FD;
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Geist', sans-serif;
+    --border-radius-sm: 12px;
+    --border-radius-md: 24px;
+    --border-radius-lg: 36px;
+    --container-max: 1200px;
+    --section-gap: 8rem;
+}
+
+/* ----------------------------------
+   LIGHT MODE (Linear/Vercel Vibe)
+   ---------------------------------- */
+html[data-theme="light"] {
+    --bg-primary: #ffffff; /* Pure white */
+    --bg-secondary: #fafafa;
+    --bg-tertiary: #f5f5f5;
+    --bg-surface: rgba(255, 255, 255, 0.7);
+    --bg-surface-hover: rgba(255, 255, 255, 0.9);
+    
+    --text-primary: #111111; /* Almost pure black */
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    
+    --border-color: rgba(0, 0, 0, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 40px rgba(19, 185, 253, 0.1);
+    
+    --card-gradient: linear-gradient(135deg, #ffffff, #fafafa);
+}
+
+/* ----------------------------------
+   DARK MODE (Deep Space / Vercel Vibe)
+   ---------------------------------- */
+html[data-theme="dark"] {
+    --bg-primary: #000000; /* Pure black for that OLED Linear feel */
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #111111;
+    --bg-surface: rgba(10, 10, 10, 0.6);
+    --bg-surface-hover: rgba(20, 20, 20, 0.8);
+    
+    --text-primary: #ededed;
+    --text-secondary: #a1a1aa;
+    --text-muted: #888888;
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(19, 185, 253, 0.15);
+    
+    --card-gradient: linear-gradient(135deg, #0a0a0a, #111111);
+}
+
+/* Global Transition Application */
+body {
+    transition: var(--theme-transition);
+}
+
+/* Ambient glow overrides for light mode */
+html[data-theme="light"] .ambient-glow {
+    opacity: 0.05;
+}

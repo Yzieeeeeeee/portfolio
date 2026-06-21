@@ -1,0 +1,180 @@
+/* ==========================================================================
+   SECTIONS (Hero, Bento Grid, Projects)
+   ========================================================================== */
+
+/* ----------------------------------
+   Hero Section
+   ---------------------------------- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+/* ----------------------------------
+   Bento Grid (Expertise)
+   ---------------------------------- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(220px, auto);
+    gap: 1.5rem;
+}
+
+.bento-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-card.span-2 {
+    grid-column: span 2;
+}
+
+.bento-icon {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+/* ----------------------------------
+   Projects Grid
+   ---------------------------------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+}
+
+.project-card.featured .project-image {
+    flex: 1;
+    height: 400px;
+    margin-bottom: 0;
+}
+
+.project-card.featured .project-info {
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    .project-card.featured {
+        flex-direction: column;
+    }
+
+    .project-card.featured .project-image {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* ----------------------------------
+   Timeline
+   ---------------------------------- */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.3rem;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--text-muted);
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover::before,
+.timeline-item.active::before {
+    border-color: var(--flutter-cyan);
+    background: var(--flutter-cyan);
+    box-shadow: 0 0 10px rgba(19, 185, 253, 0.5);
+}
+
+/* ----------------------------------
+   Contact
+   ---------------------------------- */
+.contact-section {
+    position: relative;
+}
+
+.contact-card {
+    padding: 4rem;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card.span-2 {
+        grid-column: span 1;
+    }
+
+    .contact-card {
+        padding: 2rem;
+    }
+}
