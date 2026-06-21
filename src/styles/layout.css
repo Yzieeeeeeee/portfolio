@@ -330,14 +330,21 @@ html[data-theme="light"] .bg-grid {
         font-size: 1.4rem;
         margin-right: 0;
     }
+    .nav-actions {
+        gap: 16px;
+    }
     .nav-hamburger { 
         display: flex;
         font-size: 1.8rem;
-        padding: 8px;
+        padding: 4px;
+    }
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
     .nav-links { display: none; }
     .nav-cta { display: none; }
-    .theme-toggle { display: none; }
 
     .footer-content {
         flex-direction: column;
