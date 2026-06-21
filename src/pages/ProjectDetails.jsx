@@ -74,11 +74,11 @@ const ProjectDetails = () => {
             {project.heroImageType === 'none' ? (
               <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)' }} />
             ) : project.heroImageType === 'logo' && project.screenshots?.[1] ? (
-              <img src={`/${project.screenshots[1]}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.2) blur(8px)' }} />
+              <img src={`${import.meta.env.BASE_URL}${project.screenshots[1].replace(/^\/+/, '')}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.2) blur(8px)' }} />
             ) : project.heroImageType === 'screenshot' ? (
-              <img src={project.heroImage.startsWith('http') ? project.heroImage : `/${project.heroImage}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3) blur(2px)' }} />
+              <img src={project.heroImage.startsWith('http') ? project.heroImage : `${import.meta.env.BASE_URL}${project.heroImage.replace(/^\/+/, '')}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3) blur(2px)' }} />
             ) : (
-              <img src={project.heroImage.startsWith('http') ? project.heroImage : `/${project.heroImage}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} />
+              <img src={project.heroImage.startsWith('http') ? project.heroImage : `${import.meta.env.BASE_URL}${project.heroImage.replace(/^\/+/, '')}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} />
             )}
             <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '70%', background: 'linear-gradient(to top, var(--bg-primary) 0%, transparent 100%)' }}></div>
           </motion.div>
@@ -134,7 +134,7 @@ const ProjectDetails = () => {
                 </a>
                )}
                {project.downloadLink && project.downloadLink !== "#" && (
-                <a href={project.downloadLink.startsWith('http') || project.downloadLink.startsWith('/') ? project.downloadLink : `/${project.downloadLink}`} className="btn btn-primary w-100" download style={{ padding: '0.8rem' }}>
+                <a href={project.downloadLink.startsWith('http') ? project.downloadLink : `${import.meta.env.BASE_URL}${project.downloadLink.replace(/^\/+/, '')}`} className="btn btn-primary w-100" download style={{ padding: '0.8rem' }}>
                   <i className="ph ph-download-simple" style={{ fontSize: '1.5rem' }}></i> App
                 </a>
                )}
@@ -221,7 +221,7 @@ const ProjectDetails = () => {
               {project.screenshots.map((src, idx) => {
                 const isVideo = src.endsWith('.mp4') || src.endsWith('.webm');
                 const colSpan = idx === 0 || idx === 3 ? 'span-2' : '';
-                const source = src.startsWith('http') ? src : `/${src}`;
+                const source = src.startsWith('http') ? src : `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`;
                 
                 return (
                   <motion.div key={idx} variants={itemVariants} className={`glass-card hover-lift ${colSpan}`} style={{ overflow: 'hidden', borderRadius: 'var(--border-radius-md)', padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'rgba(255,255,255,0.02)' }}>
