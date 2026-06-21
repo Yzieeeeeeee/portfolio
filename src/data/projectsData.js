@@ -238,7 +238,7 @@ const projectsData = {
             "legacy/ecommerce snapshop App/architecture snapshop version 2.png",
             "legacy/ecommerce snapshop App/uml digrams.png"
         ],
-        downloadLink: "https://drive.google.com/YOUR_LINK_HERE",
+        downloadLink: "legacy/ecommerce snapshop App/Snapshop.zip",
         repoLink: "https://github.com/Yzieeeeeeee/ecommerce_project",
         liveDemoLink: null,
         
@@ -389,7 +389,7 @@ const projectsData = {
             "legacy/revvo/user request part .jpeg",
             "legacy/revvo/user scrap items.jpeg"
         ],
-        downloadLink: "https://drive.google.com/YOUR_LINK_HERE",
+        downloadLink: "legacy/revvo/revvo.zip",
         repoLink: "https://github.com/Yzieeeeeeee/Revvo-",
         liveDemoLink: null,
         
