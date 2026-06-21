@@ -89,7 +89,10 @@ function ProjectShowcase({ project, index }) {
         >
           <div className="phone-frame" style={{ '--accent': project.accentColor || 'var(--brand-primary)' }}>
             <img
-              src={project.phoneScreenshot || (project.screenshots?.[0]?.startsWith('http') ? project.screenshots[0] : `/${project.screenshots?.[1] || project.heroImage}`)}
+              src={(() => {
+                const p = project.phoneScreenshot || project.screenshots?.[1] || project.heroImage;
+                return p.startsWith('http') ? p : `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`;
+              })()}
               alt={`${project.title} screenshot`}
               loading="lazy"
             />
