@@ -143,6 +143,18 @@ const Navbar = () => {
             >
               Get in touch
             </motion.a>
+
+            <motion.button
+              className="btn btn-secondary mt-2"
+              onClick={() => { toggleTheme(); setDrawerOpen(false); }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+            >
+              <i className={theme === 'light' ? 'ph-fill ph-moon' : 'ph-fill ph-sun'} style={{ fontSize: '1.2rem' }} />
+              {theme === 'light' ? 'Enable Dark Mode' : 'Enable Light Mode'}
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

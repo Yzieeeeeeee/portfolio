@@ -337,6 +337,7 @@ html[data-theme="light"] .bg-grid {
     }
     .nav-links { display: none; }
     .nav-cta { display: none; }
+    .theme-toggle { display: none; }
 
     .footer-content {
         flex-direction: column;
