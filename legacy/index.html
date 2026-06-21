@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Minhan | Flutter Developer & Firebase Specialist</title>
+    <meta name="description" content="Portfolio of Muhammed Minhan, a passionate Flutter Developer specializing in modern mobile application development, Firebase ecosystem integration, and cloud-hosted solutions.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="glow glow-blue"></div>
+        <div class="glow glow-cyan"></div>
+        <div class="glow glow-purple"></div>
+        <canvas id="particleCanvas"></canvas>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">MM.</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact" class="btn-nav">Hire Me</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <div class="hero-badge glass-panel">
+                        <span class="pulse"></span> Available for new opportunities
+                    </div>
+                    <h1 class="hero-title">
+                        Muhammed Minhan
+                    </h1>
+                    <h2 class="hero-subtitle gradient-text">
+                        <span class="typing-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-desc">
+                        Build beautiful, scalable, and high-performance mobile applications using Flutter, Firebase, and Cloud Technologies. Passionate about creating exceptional user experiences and production-ready applications.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="resume.pdf" class="btn btn-primary" target="_blank">Download Resume</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal-right">
+                    <div class="floating-mockup">
+                        <div class="flutter-logo-container glass-panel">
+                            <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter" class="flutter-logo-anim">
+                        </div>
+                        <div class="code-snippet glass-panel delay-1">
+                            <pre><code>Widget build(BuildContext context) {
+  return PremiumApp(
+    theme: DarkMode.elegant(),
+    home: InnovationScreen(),
+  );
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual reveal-left">
+                        <div class="image-wrapper glass-panel">
+                            <img src="images/profile.jpg" alt="Muhammed Minhan" onerror="this.src='https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=800&auto=format&fit=crop'">
+                            <div class="glass-overlay-stats">
+                                <div class="stat">
+                                    <span class="stat-num">15+</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content reveal-right">
+                        <h2 class="section-title">Crafting digital <span class="gradient-text">excellence.</span></h2>
+                        <p class="text-lg">
+                            I am a Flutter Developer focused on building modern cross-platform mobile applications with elegant user interfaces, scalable backend integrations, and cloud-powered architectures.
+                        </p>
+                        <p class="text-dim">
+                            My expertise includes Flutter, Dart, Firebase, Firestore, Firebase Realtime Database, REST APIs, Cloud Hosting, and Mobile UI Engineering. I enjoy transforming ideas into production-ready applications while maintaining clean architecture, performance, and scalability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Expertise -->
+        <section id="expertise" class="expertise-section section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
+                    <p class="section-subtitle">A comprehensive toolkit spanning mobile development, cloud infrastructure, and software architecture.</p>
+                </div>
+                
+                <div class="bento-grid">
+                    <div class="bento-item span-2 glass-panel reveal hover-glow-blue">
+                        <div class="bento-icon"><i class="ph ph-device-mobile"></i></div>
+                        <h3>Mobile Development</h3>
+                        <p>Cross-platform & native-like experiences.</p>
+                        <ul class="skill-tags">
+                            <li>Flutter</li>
+                            <li>Dart</li>
+                            <li>Android Development</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bento-item glass-panel reveal delay-1 hover-glow-cyan">
+                        <div class="bento-icon"><i class="ph ph-tree-structure"></i></div>
+                        <h3>Architecture</h3>
+                        <ul class="skill-tags col">
+                            <li>Clean Architecture</li>
+                            <li>MVVM</li>
+                            <li>Repository Pattern</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-item glass-panel reveal delay-2 hover-glow-purple">
+                        <div class="bento-icon"><i class="ph ph-atom"></i></div>
+                        <h3>State Management</h3>
+                        <ul class="skill-tags col">
+                            <li>Provider</li>
+                            <li>Riverpod</li>
+                            <li>Bloc</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-item span-2 glass-panel reveal hover-glow-purple">
+                        <div class="bento-icon"><i class="ph ph-plugs-connected"></i></div>
+                        <h3>Backend Integration</h3>
+                        <p>Robust and secure communication layers.</p>
+                        <ul class="skill-tags">
+                            <li>REST APIs</li>
+                            <li>JSON Parsing</li>
+                            <li>Dio / HTTP Client</li>
+                            <li>API Security</li>
+                        </ul>
+                    </div>
+
+                    <div class="bento-item span-2 glass-panel reveal delay-1 hover-glow-cyan">
+                        <div class="bento-icon"><i class="ph ph-wrench"></i></div>
+                        <h3>Development Tools</h3>
+                        <ul class="skill-tags">
+                            <li>Git & GitHub</li>
+                            <li>Android Studio</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                            <li>Firebase Console</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Firebase & Cloud Experience -->
+        <section id="experience" class="cloud-section section-padding">
+            <div class="container">
+                <div class="split-layout">
+                    <div class="firebase-panel glass-panel reveal hover-glow-orange">
+                        <div class="panel-header">
+                            <i class="ph ph-fire gradient-text-orange" style="font-size: 2.5rem;"></i>
+                            <h2>Firebase Ecosystem</h2>
+                        </div>
+                        <p class="panel-desc">Experienced in designing scalable Firebase-powered applications with real-time synchronization and cloud-based architecture.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="ph ph-user-circle-plus"></i>
+                                <div>
+                                    <h4>Authentication</h4>
+                                    <p>Secure user auth and access control.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-database"></i>
+                                <div>
+                                    <h4>Cloud Firestore</h4>
+                                    <p>Real-time scalable cloud database solutions.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-arrows-left-right"></i>
+                                <div>
+                                    <h4>Realtime Database</h4>
+                                    <p>Live synchronization of application data.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-folder-cloud"></i>
+                                <div>
+                                    <h4>Firebase Storage</h4>
+                                    <p>Robust media and file management.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-bell-ringing"></i>
+                                <div>
+                                    <h4>Push Notifications</h4>
+                                    <p>Real-time user engagement systems.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cloud-panel glass-panel reveal delay-1 hover-glow-blue">
+                        <div class="panel-header">
+                            <i class="ph ph-cloud-arrow-up gradient-text-blue" style="font-size: 2.5rem;"></i>
+                            <h2>AWS & Cloud Infrastructure</h2>
+                        </div>
+                        <p class="panel-desc">Worked with Amazon EC2 for cloud hosting, server configuration, and continuous deployment.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="ph ph-server"></i>
+                                <div>
+                                    <h4>Server Management</h4>
+                                    <p>Amazon EC2 hosting & VPS Deployment.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-globe"></i>
+                                <div>
+                                    <h4>Domain & DNS</h4>
+                                    <p>Domain integration and web hosting.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="ph ph-rocket-launch"></i>
+                                <div>
+                                    <h4>Production Deploy</h4>
+                                    <p>Performance optimization & environment setup.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills Visualization -->
+                        <div class="skills-viz">
+                            <h3 class="mb-2" style="margin-top: 2rem;">Proficiency</h3>
+                            <div class="progress-bar">
+                                <div class="progress-info"><span>Flutter</span> <span>Expert</span></div>
+                                <div class="progress-track"><div class="progress-fill fill-flutter" data-width="95%"></div></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-info"><span>Firebase</span> <span>Advanced</span></div>
+                                <div class="progress-track"><div class="progress-fill fill-firebase" data-width="85%"></div></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-info"><span>REST APIs</span> <span>Advanced</span></div>
+                                <div class="progress-track"><div class="progress-fill fill-api" data-width="88%"></div></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-info"><span>AWS EC2</span> <span>Intermediate</span></div>
+                                <div class="progress-track"><div class="progress-fill fill-aws" data-width="70%"></div></div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-info"><span>UI/UX Design</span> <span>Advanced</span></div>
+                                <div class="progress-track"><div class="progress-fill fill-ui" data-width="85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="projects-section section-padding">
+            <div class="container">
+                <div class="section-header reveal text-center">
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="section-subtitle">Production-ready applications with premium UI/UX and scalable architectures.</p>
+                </div>
+
+                <div class="project-grid">
+                    <!-- Fest Hub -->
+                    <div class="project-card glass-panel reveal hover-glow-blue">
+                        <div class="project-img" style="background: linear-gradient(135deg, #1A2980, #26D0CE);">
+                            <i class="ph ph-ticket project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">Firebase</span>
+                            </div>
+                            <h3>Fest Hub</h3>
+                            <p class="project-sub">Cultural Festival Management Platform</p>
+                            <p>A complete cultural festival management ecosystem designed for educational institutions. Streamlines operations from registration to result publication.</p>
+                            <ul class="project-features">
+                                <li>Event Scheduling & Venue Mgmt</li>
+                                <li>Judge Management Module</li>
+                                <li>Results Publishing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- CRM Dashboard -->
+                    <div class="project-card glass-panel reveal delay-1 hover-glow-purple">
+                        <div class="project-img" style="background: linear-gradient(135deg, #4b134f, #c94b4b);">
+                            <i class="ph ph-chart-line-up project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">REST APIs</span>
+                            </div>
+                            <h3>CRM Dashboard Application</h3>
+                            <p class="project-sub">Enterprise Dashboard Solution</p>
+                            <p>Professional business analytics and monitoring application for tracking performance and visualizing complex data.</p>
+                            <ul class="project-features">
+                                <li>KPI Monitoring & Analytics</li>
+                                <li>Data Visualization</li>
+                                <li>Reports & Statistics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Music Player -->
+                    <div class="project-card glass-panel reveal hover-glow-cyan">
+                        <div class="project-img" style="background: linear-gradient(135deg, #141E30, #243B55);">
+                            <i class="ph ph-music-notes project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">UI/UX</span>
+                            </div>
+                            <h3>Music Player Application</h3>
+                            <p class="project-sub">Modern Audio Experience</p>
+                            <p>Premium music application with elegant design, playlist management, audio controls, and beautiful media screens.</p>
+                        </div>
+                    </div>
+
+                    <!-- E-Commerce / Adidas -->
+                    <div class="project-card glass-panel reveal delay-1 hover-glow-blue">
+                        <div class="project-img" style="background: linear-gradient(135deg, #000000, #434343);">
+                            <img src="images/Adidas logo.jpg" alt="Adidas App" class="project-img-cover" onerror="this.style.display='none'">
+                            <i class="ph ph-shopping-bag project-icon fallback"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">Firestore</span>
+                            </div>
+                            <h3>Adidas Shopping Application</h3>
+                            <p class="project-sub">Complete E-Commerce Platform</p>
+                            <p>Highly detailed shopping application featuring product catalogs, cart management, and seamless authentication.</p>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Clone -->
+                    <div class="project-card glass-panel reveal hover-glow-purple">
+                        <div class="project-img" style="background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                            <img src="images/Instagram-Logo.png" alt="Instagram App" class="project-img-cover" onerror="this.style.display='none'">
+                            <i class="ph ph-instagram-logo project-icon fallback"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">UI/UX</span>
+                            </div>
+                            <h3>Instagram UI Clone</h3>
+                            <p class="project-sub">Social Media Interface Recreation</p>
+                            <p>Pixel-perfect Instagram-inspired application showcasing complex UI layouts, stories, and feed architectures.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Flipkart Clone -->
+                    <div class="project-card glass-panel reveal delay-1 hover-glow-cyan">
+                        <div class="project-img" style="background: linear-gradient(135deg, #0072ff, #00c6ff);">
+                            <i class="ph ph-shopping-cart project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">UI/UX</span>
+                            </div>
+                            <h3>Flipkart UI Clone</h3>
+                            <p class="project-sub">E-Commerce Interface Recreation</p>
+                            <p>Highly detailed Flipkart-inspired shopping application with dynamic layouts and product listings.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Malware Scanner -->
+                    <div class="project-card glass-panel reveal span-2 hover-glow-orange">
+                        <div class="project-img" style="background: linear-gradient(135deg, #333333, #dd1818);">
+                            <i class="ph ph-shield-check project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="badge">Flutter</span>
+                                <span class="badge">Security</span>
+                            </div>
+                            <h3>Malware Scanner Application</h3>
+                            <p class="project-sub">Security Utility Platform</p>
+                            <p>Selective file scanning, threat detection interface, file analysis, and a modern security dashboard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline & Why Hire Me -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="split-layout">
+                    <!-- Why Hire Me -->
+                    <div class="why-hire-me">
+                        <div class="section-header reveal">
+                            <h2 class="section-title">Why <span class="gradient-text">Hire Me?</span></h2>
+                        </div>
+                        <div class="grid-2-col">
+                            <div class="feature-card glass-panel reveal hover-glow-cyan">
+                                <i class="ph ph-code"></i>
+                                <h4>Clean Code</h4>
+                                <p>Maintainable and scalable solutions.</p>
+                            </div>
+                            <div class="feature-card glass-panel reveal delay-1 hover-glow-purple">
+                                <i class="ph ph-palette"></i>
+                                <h4>Beautiful UI</h4>
+                                <p>Pixel-perfect modern interfaces.</p>
+                            </div>
+                            <div class="feature-card glass-panel reveal hover-glow-orange">
+                                <i class="ph ph-fire"></i>
+                                <h4>Firebase Expertise</h4>
+                                <p>Real-time and cloud-powered applications.</p>
+                            </div>
+                            <div class="feature-card glass-panel reveal delay-1 hover-glow-blue">
+                                <i class="ph ph-cloud-arrow-up"></i>
+                                <h4>Cloud Deployment</h4>
+                                <p>Experience with AWS EC2 hosting.</p>
+                            </div>
+                            <div class="feature-card glass-panel reveal hover-glow-cyan">
+                                <i class="ph ph-lightning"></i>
+                                <h4>Performance Focused</h4>
+                                <p>Optimized with smooth user experiences.</p>
+                            </div>
+                            <div class="feature-card glass-panel reveal delay-1 hover-glow-purple">
+                                <i class="ph ph-lightbulb"></i>
+                                <h4>Problem Solver</h4>
+                                <p>Transforming ideas into production-ready solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journey Timeline -->
+                    <div class="timeline-container glass-panel reveal delay-2 hover-glow-blue">
+                        <h3 class="mb-3">Development Journey</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Started Learning Programming</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Learned Flutter Development</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Built First Mobile Application</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Created Multiple UI Clones</h4>
+                            </div>
+                            <div class="timeline-item highlight-item">
+                                <div class="timeline-dot pulse-dot"></div>
+                                <h4>Developed Fest Hub</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Worked with Firebase Ecosystem</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Implemented Realtime Databases</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Deployed Applications on AWS EC2</h4>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h4>Built Enterprise Dashboards</h4>
+                            </div>
+                            <div class="timeline-item active">
+                                <div class="timeline-dot"></div>
+                                <h4>Currently Expanding Full-Stack Skills</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="contact-card glass-panel reveal hover-glow-blue">
+                    <div class="contact-info">
+                        <h2>Let's build something <span class="gradient-text">iconic.</span></h2>
+                        <p>Currently available for freelance projects and exciting full-time opportunities. Reach out if you want to collaborate on a modern mobile or web application.</p>
+                        
+                        <div class="social-links mt-3">
+                            <a href="mailto:muhammedyasir3819@gmail.com" class="social-link"><i class="ph ph-envelope"></i> muhammedyasir3819@gmail.com</a>
+                            <a href="https://www.linkedin.com/in/muhammed-yasie/" class="social-link" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+                            <a href="https://github.com/Yzieeeeeeee" class="social-link" target="_blank"><i class="ph ph-github-logo"></i> GitHub</a>
+                            <div class="social-link"><i class="ph ph-map-pin"></i> Available Worldwide</div>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="premium-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required placeholder="Project details..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message <i class="ph ph-paper-plane-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <div class="logo">
+                    <span class="logo-text">MM.</span>
+                </div>
+                <h3>Muhammed Minhan</h3>
+                <p>Flutter Developer • Firebase Specialist • Cloud Enthusiast</p>
+                <p class="footer-quote">"Building elegant mobile experiences with Flutter, Firebase, and Cloud Technologies."</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="resume.pdf" target="_blank">Resume</a>
+                </div>
+                <p class="copyright">© 2026 Muhammed Minhan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast glass-panel">
+        <i class="ph ph-check-circle" style="color: #00ff88; font-size: 1.5rem;"></i>
+        <span>Message delivered successfully. I'll be in touch soon.</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("VcqKYYYin6fwdGkEl");
+        const form = document.getElementById("contact-form");
+        const toast = document.getElementById("toast");
+        
+        if(form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Sending...';
+                
+                emailjs.sendForm("service_z4dfs5o", "template_9iqt3pb", this)
+                    .then(() => {
+                        toast.classList.add("show");
+                        form.reset();
+                        btn.innerHTML = originalText;
+                        setTimeout(() => { toast.classList.remove("show"); }, 4000);
+                    }).catch((error) => {
+                        console.error(error);
+                        btn.innerHTML = originalText;
+                        alert("Message failed to send. Please check the console.");
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

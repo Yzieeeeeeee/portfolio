@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <title>Adidas Screenshots</title>
+
+
+  <link rel="stylesheet" href="dome-gallery.css">
+</head>
+
+<body>
+<div class="gallery-header">
+  <a href="index.html" class="back-btn">
+    <span class="arrow">←</span>
+    <span>Back</span>
+  </a>
+
+  <h2 class="title">Instagram App – Screenshots</h2>
+</div>
+
+
+  <div id="domeContainer"></div>
+
+  <script src="dome-gallery.js"></script>
+
+  <script>
+    const images = [
+      "images/insta feed 2.jpg",
+      "images/insta feed.jpg",
+      "images/insta login 2.jpg",
+      "images/insta login.jpg",
+      "images/insta messages.jpg",
+      "images/insta notification.jpg",
+      "images/insta post.jpg",
+      "images/insta profile.jpg",
+      "images/insta reels 2.jpg",
+      "images/insta reels.jpg",
+      "images/insta search.jpg",
+      "images/insta settings.jpg",
+    ];
+
+    DomeGallery(document.getElementById("domeContainer"), images);
+  </script>
+
+</body>
+</html>
+116322/
