@@ -84,12 +84,17 @@ const Navbar = () => {
             whileTap={{ scale: 0.9 }}
             aria-label="Toggle theme"
           >
-            <motion.i
-              className={theme === 'light' ? 'ph-fill ph-moon' : 'ph-fill ph-sun'}
+            <motion.div
               animate={{ rotate: theme === 'dark' ? 180 : 0 }}
               transition={{ duration: 0.4 }}
-              style={{ fontSize: '1rem' }}
-            />
+              style={{ display: 'flex', fontSize: '1.2rem' }}
+            >
+              {theme === 'light' ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M216.7 152.6A98.9 98.9 0 0 1 103.4 39.3a13.4 13.4 0 0 0-15.8-15.6A102.3 102.3 0 1 0 232.3 168.4a13.4 13.4 0 0 0-15.6-15.8Z"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64a64.1 64.1 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48a48.1 48.1 0 0 0 48-48ZM58.3 58.3a8.1 8.1 0 0 0-11.4 0l-17 17a8.1 8.1 0 0 0 11.4 11.4l17-17a8.1 8.1 0 0 0 0-11.4Zm0 139.4a8.1 8.1 0 0 1-11.4 0l-17-17a8.1 8.1 0 0 1 11.4-11.4l17 17a8.1 8.1 0 0 1 0 11.4ZM197.7 58.3a8.1 8.1 0 0 1 0 11.4l-17 17a8.1 8.1 0 0 1-11.4-11.4l17-17a8.1 8.1 0 0 1 11.4 0Zm0 139.4a8.1 8.1 0 0 0 0-11.4l-17-17a8.1 8.1 0 0 0-11.4 11.4l17 17a8.1 8.1 0 0 0 11.4 0ZM240 120h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16ZM40 120H16a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Zm80 80v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-16 0Z"/></svg>
+              )}
+            </motion.div>
           </motion.button>
 
           <a
@@ -105,7 +110,13 @@ const Navbar = () => {
             onClick={() => setDrawerOpen(!drawerOpen)}
             aria-label="Menu"
           >
-            <i className={`ph ${drawerOpen ? 'ph-x' : 'ph-list'}`} />
+            <div style={{ display: 'flex', fontSize: '1.8rem' }}>
+              {drawerOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M205.7 194.3a8.1 8.1 0 0 1-11.4 11.4L128 139.3l-66.3 66.4a8.1 8.1 0 0 1-11.4-11.4L116.7 128L50.3 61.7a8.1 8.1 0 0 1 11.4-11.4L128 116.7l66.3-66.4a8.1 8.1 0 0 1 11.4 11.4L139.3 128Z"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8ZM40 72h176a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16Zm176 112H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z"/></svg>
+              )}
+            </div>
           </button>
         </div>
       </motion.nav>
@@ -152,7 +163,13 @@ const Navbar = () => {
               transition={{ delay: 0.4 }}
               style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
             >
-              <i className={theme === 'light' ? 'ph-fill ph-moon' : 'ph-fill ph-sun'} style={{ fontSize: '1.2rem' }} />
+              <div style={{ display: 'flex', fontSize: '1.2rem' }}>
+                {theme === 'light' ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M216.7 152.6A98.9 98.9 0 0 1 103.4 39.3a13.4 13.4 0 0 0-15.8-15.6A102.3 102.3 0 1 0 232.3 168.4a13.4 13.4 0 0 0-15.6-15.8Z"/></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64a64.1 64.1 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48a48.1 48.1 0 0 0 48-48ZM58.3 58.3a8.1 8.1 0 0 0-11.4 0l-17 17a8.1 8.1 0 0 0 11.4 11.4l17-17a8.1 8.1 0 0 0 0-11.4Zm0 139.4a8.1 8.1 0 0 1-11.4 0l-17-17a8.1 8.1 0 0 1 11.4-11.4l17 17a8.1 8.1 0 0 1 0 11.4ZM197.7 58.3a8.1 8.1 0 0 1 0 11.4l-17 17a8.1 8.1 0 0 1-11.4-11.4l17-17a8.1 8.1 0 0 1 11.4 0Zm0 139.4a8.1 8.1 0 0 0 0-11.4l-17-17a8.1 8.1 0 0 0-11.4 11.4l17 17a8.1 8.1 0 0 0 11.4 0ZM240 120h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16ZM40 120H16a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Zm80 80v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-16 0Z"/></svg>
+                )}
+              </div>
               {theme === 'light' ? 'Enable Dark Mode' : 'Enable Light Mode'}
             </motion.button>
           </motion.div>
