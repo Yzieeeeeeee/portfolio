@@ -321,12 +321,22 @@ html[data-theme="light"] .bg-grid {
 
 @media (max-width: 767px) {
     .navbar-pill {
-        top: 12px;
-        padding: 8px 16px;
+        top: 16px;
+        padding: 12px 24px;
+        width: 92%;
+        justify-content: space-between;
+    }
+    .nav-logo {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    .nav-hamburger { 
+        display: flex;
+        font-size: 1.8rem;
+        padding: 8px;
     }
     .nav-links { display: none; }
     .nav-cta { display: none; }
-    .nav-hamburger { display: flex; }
 
     .footer-content {
         flex-direction: column;

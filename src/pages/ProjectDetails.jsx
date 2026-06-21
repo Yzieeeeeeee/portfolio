@@ -13,8 +13,8 @@ const staggerContainer = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const ProjectDetails = () => {
@@ -51,12 +51,10 @@ const ProjectDetails = () => {
         initial={{ y: -50, opacity: 0 }} 
         animate={{ y: 0, opacity: 1 }} 
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }} 
-        style={{ position: 'fixed', top: '2rem', left: '2rem', zIndex: 100 }}
+        style={{ position: 'fixed', top: '24px', left: '24px', zIndex: 100 }}
       >
-        <Link to="/" className="back-btn hover-lift" style={{ 
-          display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none', 
-          color: isDarkHero ? '#ffffff' : 'var(--text-primary)', 
-          padding: '0.7rem 1.4rem', borderRadius: '30px', 
+        <Link to="/" className="btn" style={{ 
+          display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '9999px',
           background: isDarkHero ? 'rgba(0,0,0,0.4)' : 'var(--glass-bg)', 
           backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', 
           border: `1px solid ${isDarkHero ? 'rgba(255,255,255,0.1)' : 'var(--glass-border)'}`, 
@@ -88,7 +86,7 @@ const ProjectDetails = () => {
             ) : (
               <img src={project.heroImage.startsWith('http') ? project.heroImage : `${import.meta.env.BASE_URL}${project.heroImage.replace(/^\/+/, '')}`} alt="Project Banner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} />
             )}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '70%', background: 'linear-gradient(to top, var(--bg-primary) 0%, transparent 100%)' }}></div>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '80%', background: 'linear-gradient(to top, var(--bg-primary) 0%, rgba(10,10,10,0.8) 30%, transparent 100%)' }}></div>
           </motion.div>
 
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -100,10 +98,10 @@ const ProjectDetails = () => {
                   }}>{tag}</span>
                 ))}
               </motion.div>
-              <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', margin: '0 0 1rem 0', lineHeight: 1.1, color: '#fff', letterSpacing: '-0.03em' }}>
+              <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', margin: '0 0 1rem 0', lineHeight: 1.1, color: '#fff', letterSpacing: '-0.03em', textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>
                 {project.title}
               </motion.h1>
-              <motion.h3 variants={itemVariants} style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 400, color: 'rgba(255,255,255,0.7)', margin: 0 }}>
+              <motion.h3 variants={itemVariants} style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', fontWeight: 400, color: 'rgba(255,255,255,0.9)', margin: 0, textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
                 {project.subtitle}
               </motion.h3>
             </motion.div>
