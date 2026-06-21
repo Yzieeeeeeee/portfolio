@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import projectsData from '../data/projectsData';
+import SEO from '../components/SEO';
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -35,9 +36,16 @@ const ProjectDetails = () => {
   }
 
   const isDarkHero = project.heroImageType !== 'none';
+  const seoImage = project.heroImage ? (project.heroImage.startsWith('http') ? project.heroImage : `${import.meta.env.BASE_URL}${project.heroImage.replace(/^\/+/, '')}`) : undefined;
 
   return (
     <div className="project-details-page">
+      <SEO 
+        title={project.title} 
+        description={project.shortDescription} 
+        image={seoImage} 
+      />
+
       {/* Floating Back Button */}
       <motion.div 
         initial={{ y: -50, opacity: 0 }} 
