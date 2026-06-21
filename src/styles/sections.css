@@ -92,12 +92,12 @@
    Project Showcase (Fullscreen sections)
    ---------------------------------- */
 .project-showcase {
-    min-height: 100vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 /* Subtle accent tint background per project */
